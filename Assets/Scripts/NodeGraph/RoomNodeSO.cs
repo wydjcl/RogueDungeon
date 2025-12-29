@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class RoomNodeSO : ScriptableObject
 {
-    public RoomNodeTypeSO roomNodeType;
-
-    public string id;
-    public List<string> parentRoomNodeIDList = new List<string>();
-    public List<string> childRoomNodeIDList = new List<string>();
+    [HideInInspector] public string id;
+    [HideInInspector] public List<string> parentRoomNodeIDList = new List<string>();
+    [HideInInspector] public List<string> childRoomNodeIDList = new List<string>();
     [HideInInspector] public RoomNodeGraphSO roomNodeGraph;
-
+    public RoomNodeTypeSO roomNodeType;
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
 
     #region Editor Code
@@ -29,7 +27,7 @@ public class RoomNodeSO : ScriptableObject
     public void Initialise(Rect rect, RoomNodeGraphSO nodeGraph, RoomNodeTypeSO roomNodeType)
     {
         this.rect = rect;
-        this.id = Guid.NewGuid().ToString();//生成一个节点唯一id,永不重复
+        this.id = Guid.NewGuid().ToString();
         this.name = "RoomNode";
         this.roomNodeGraph = nodeGraph;
         this.roomNodeType = roomNodeType;
@@ -246,7 +244,6 @@ public class RoomNodeSO : ScriptableObject
         if (IsChildRoomValid(childID))
         {
             childRoomNodeIDList.Add(childID);
-
             return true;
         }
 

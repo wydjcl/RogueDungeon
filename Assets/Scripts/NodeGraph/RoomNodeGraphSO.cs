@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RoomNodeGraph", menuName = "SO/Room Node Graph")]
+[CreateAssetMenu(fileName = "RoomNodeGraph", menuName = "Scriptable Objects/Dungeon/Room Node Graph")]
 public class RoomNodeGraphSO : ScriptableObject
 {
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
@@ -12,6 +12,7 @@ public class RoomNodeGraphSO : ScriptableObject
     private void Awake()
     {
         LoadRoomNodeDictionary();
+
     }
 
     /// <summary>
@@ -28,6 +29,7 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
+
     /// <summary>
     /// Get room node by roomNodeType
     /// </summary>
@@ -42,6 +44,7 @@ public class RoomNodeGraphSO : ScriptableObject
         }
         return null;
     }
+
 
     /// <summary>
     /// Get room node by room nodeID
@@ -66,6 +69,7 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
+
     #region Editor Code
 
     // The following code should only run in the Unity Editor
@@ -89,4 +93,5 @@ public class RoomNodeGraphSO : ScriptableObject
 #endif
 
     #endregion Editor Code
+
 }

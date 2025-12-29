@@ -3,13 +3,10 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-/// <summary>
-/// 关卡编辑器
-/// </summary>
 public class RoomNodeGraphEditor : EditorWindow
 {
-    private GUIStyle roomNodeStyle;//普通样式
-    private GUIStyle roomNodeSelectedStyle;//选中后的样式
+    private GUIStyle roomNodeStyle;
+    private GUIStyle roomNodeSelectedStyle;
     private static RoomNodeGraphSO currentRoomNodeGraph;
 
     private Vector2 graphOffset;
@@ -32,8 +29,8 @@ public class RoomNodeGraphEditor : EditorWindow
 
     // Grid Spacing
     private const float gridLarge = 100f;
-
     private const float gridSmall = 25f;
+
 
     [MenuItem("Room Node Graph Editor", menuItem = "Window/Dungeon Editor/Room Node Graph Editor")]
     private static void OpenWindow()
@@ -71,7 +68,7 @@ public class RoomNodeGraphEditor : EditorWindow
     }
 
     /// <summary>
-    /// 如果在属性检查器中双击了房间节点图脚本化对象资源，则打开房间节点图编辑器窗口
+    /// Open the room node graph editor window if a room node graph scriptable object asset is double clicked in the inspector
     /// </summary>
 
     [OnOpenAsset(0)]  // Need the namespace UnityEditor.Callbacks
@@ -120,7 +117,7 @@ public class RoomNodeGraphEditor : EditorWindow
     }
 
     /// <summary>
-    /// 为房间节点图编辑器绘制背景网格
+    /// Draw a background grid for the room node graph editor
     /// </summary>
     private void DrawBackgroundGrid(float gridSize, float gridOpacity, Color gridColor)
     {
@@ -144,7 +141,9 @@ public class RoomNodeGraphEditor : EditorWindow
         }
 
         Handles.color = Color.white;
+
     }
+
 
     private void DrawDraggedLine()
     {
@@ -356,6 +355,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
             // Save asset database
             AssetDatabase.SaveAssets();
+
         }
     }
 
@@ -487,6 +487,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
         GUI.changed = true;
     }
+
 
     /// <summary>
     /// Drag connecting line from room node
